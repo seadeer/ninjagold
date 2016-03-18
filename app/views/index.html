@@ -4,12 +4,49 @@
   </head>
   <body>
         <div class="container">
+            <div id="gold">Your gold: {{session['gold']}}</div>
             <h1>Ninja Gold</h1>
-            <div id="farm"></div>
-            <div id="cave"></div>
-            <div id="wife"></div>
-            <div id="dice"></div>
-
+            <div id="farm">
+                <h2>Farm</h2>
+                <p>(earn 2-15 gold)</p>
+                <form action="/process_gold" method="post">
+                    <input type="hidden" name="action" value="farm">
+                    <input type="submit" name="farm" value="Find Gold!"></input>
+                </form>
+            </div>
+            <div id="cave">
+                <h2>Meditation Cave</h2>
+                <p>(win 0 gold)</p>
+                <form action="/process_gold" method="post">
+                    <input type="hidden" name="action" value="cave">
+                    <input type="submit" name="cave" value="Find Gold!"></input>
+                </form>
+            </div>
+            <div id="wife">
+                <h2>Talk to Shogun's Wife</h2>
+                <p>(win 1-5 gold)</p>
+                <form action="/process_gold" method="post">
+                    <input type="hidden" name="action" value="wife">
+                    <input type="submit" name="wife" value="Find Gold!"></input>
+                </form>
+            </div>
+            <div id="dice">
+                 <h2>Play Dice with Shogun</h2>
+                <p>(win or lose 1-1000 gold)</p>
+                <form action="/process_gold" method="post">
+                    <input type="hidden" name="action" value="dice">
+                    <input type="submit" name="dice" value="Find Gold!"></input>
+                </form>
+            </div>
+             <div id="messages">
+                    {% if session['messages']%}
+                        {%for msg in session['messages']%}
+                            <p>{{msg['timestamp']}}</p>
+                            <p>{{msg['message']}}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            <form action="/restart" method="post"><input type="submit" value="Restart"></form>
         </div>
   </body>
 </html>
