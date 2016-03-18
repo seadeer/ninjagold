@@ -17,7 +17,7 @@ form input{
 
 .container div{
     width: 200px;
-    min-height: 200px;
+    height: 200px;
     margin: 10px;
     text-align: center;
     display: inline-block;
@@ -27,8 +27,12 @@ form input{
     vertical-align: top;
 }
 
+.container h1{
+    margin-top: 0;
+}
+
 #farm{
-    background-image: url("/static/img/farm.png"); 
+    background-image: url("/static/img/farm.png");
 }
 
 #cave{
@@ -51,6 +55,11 @@ form input{
     min-height: 70px;
     text-align: left;
     font-size: 0.8em;
+    overflow: scroll;
+}
+
+.container #gold{
+    height: 50px;
 }
 /*
 form input[type=submit]{
